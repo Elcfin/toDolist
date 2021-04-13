@@ -13,11 +13,15 @@
     margin: 10px auto;
 }
 
-#mB-main {
+#mB-mainV {
+    box-shadow: 0px 2px 6px rgba(161, 154, 154, 0.6);
+}
+
+#mB-mainInV {
     box-shadow: 0px 4px 10px rgba(161, 154, 154, 0.6);
 }
 
-#mB-input {
+#mB-mainV #mB-input {
     height: 68px;
     display: flex;
     align-items: center;
@@ -26,7 +30,16 @@
     margin: 0;
 }
 
-#mB-input input[type="text"] {
+#mB-mainInV #mB-input {
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+#mB-mainV #mB-input input[type="text"] {
     width: 100%;
     height: 68px;
     background-color: rgb(254, 254, 254);
@@ -39,16 +52,39 @@
     border: none;
 }
 
-input::-webkit-input-placeholder {
-    color: rgb(230, 230, 230);
-    font-style: italic
+#mB-mainInV #mB-input input[type="text"] {
+    width: 100%;
+    height: 68px;
+    background-color: rgb(254, 254, 254);
+    padding: 16px 16px 16px 60px;
+    line-height: 36px;
+    font-size: 24px;
+    color: rgb(77, 77, 77);
+    box-sizing: border-box;
+    outline: 0;
+    border: none;
 }
 
-#todoItems {
+#mB-mainV input::-webkit-input-placeholder {
+    color: rgb(230, 230, 230);
+    font-style: italic;
+}
+
+#mB-mainInV input::-webkit-input-placeholder {
+    color: rgb(230, 230, 230);
+    font-style: italic;
+}
+
+#mB-mainV #todoItems {
     margin: 0;
 }
 
-#todoItems ul {
+#mB-mainInV #todoItems {
+    margin: 0;
+    display: none;
+}
+
+#mB-mainV #todoItems ul {
     list-style: none;
     background-color: rgb(83, 64, 64);
     margin: 0px;
@@ -58,7 +94,17 @@ input::-webkit-input-placeholder {
     flex-direction: column;
 }
 
-#shadow {
+#mB-mainInV #todoItems ul {
+    list-style: none;
+    background-color: rgb(83, 64, 64);
+    margin: 0px;
+    padding: 0px;
+    /*可以覆盖住上面的阴影*/
+    display: flex;
+    flex-direction: column;
+}
+
+#mB-mainV #shadow {
     width: 100%;
     height: 1px;
     background-color: rgb(254, 254, 254);
@@ -67,19 +113,42 @@ input::-webkit-input-placeholder {
     box-shadow: 0px -1px 1px rgba(161, 154, 154, 0.2);
 }
 
-.todoItem {
+#mB-mainInV #shadow {
     width: 100%;
-    height: 69px;
+    height: 1px;
+    background-color: rgb(254, 254, 254);
+    box-sizing: border-box;
+    border-top: 1px solid rgba(161, 154, 154, 0.2);
+    box-shadow: 0px -1px 1px rgba(161, 154, 154, 0.2);
+}
+
+#mB-mainV .todoItem {
+    width: 100%;
+    min-height: 69px;
     background-color: rgb(254, 254, 254);
     padding: 16px 16px 16px 60px;
     line-height: 36px;
     font-size: 24px;
     color: rgb(77, 77, 77);
+    word-break: break-all;
     border-bottom: 1px solid rgb(230, 230, 230);
     box-sizing: border-box;
 }
 
-#mB-bottom {
+#mB-mainInV .todoItem {
+    width: 100%;
+    min-height: 69px;
+    background-color: rgb(254, 254, 254);
+    padding: 16px 16px 16px 60px;
+    line-height: 36px;
+    font-size: 24px;
+    color: rgb(77, 77, 77);
+    word-break: break-all;
+    border-bottom: 1px solid rgb(230, 230, 230);
+    box-sizing: border-box;
+}
+
+#mB-mainV #mB-bottom {
     width: 100%;
     background-color: rgb(254, 254, 254);
     padding: 10px 10px 10px 24px;
@@ -89,7 +158,18 @@ input::-webkit-input-placeholder {
     position: relative;
 }
 
-#mB-bottom>div {
+#mB-mainInV #mB-bottom {
+    width: 100%;
+    background-color: rgb(254, 254, 254);
+    padding: 10px 10px 10px 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    display: none;
+}
+
+#mB-mainV #mB-bottom>div {
     height: 26px;
     line-height: 26px;
     font-size: 14px;
@@ -97,19 +177,39 @@ input::-webkit-input-placeholder {
     color: rgb(119, 119, 119);
 }
 
-#numbers {
+#mB-mainInV #mB-bottom>div {
+    height: 26px;
+    line-height: 26px;
+    font-size: 14px;
+    word-spacing: 1px;
+    color: rgb(119, 119, 119);
+}
+
+#mB-mainV #numbers {
     margin-right: 30px;
     cursor: default;
 }
 
-#buttons {
+#mB-mainInV #numbers {
+    margin-right: 30px;
+    cursor: default;
+}
+
+#mB-mainV #buttons {
     margin: auto;
     margin-right: 160px;
     display: flex;
     flex-direction: row;
 }
 
-#buttons div {
+#mB-mainInV #buttons {
+    margin: auto;
+    margin-right: 160px;
+    display: flex;
+    flex-direction: row;
+}
+
+#mB-mainV #buttons div {
     margin-right: 10px;
     padding: 0 10px;
     cursor: pointer;
@@ -117,12 +217,25 @@ input::-webkit-input-placeholder {
     box-sizing: border-box;
 }
 
-#buttons div:hover {
+#mB-mainInV #buttons div {
+    margin-right: 10px;
+    padding: 0 10px;
+    cursor: pointer;
+    border: 1px solid rgb(254, 254, 254);
+    box-sizing: border-box;
+}
+
+#mB-mainV #buttons div:hover {
     border: 1px solid rgb(239, 213, 213);
     border-radius: 4px;
 }
 
-#mB-bottom-border01 {
+#mB-mainInV #buttons div:hover {
+    border: 1px solid rgb(239, 213, 213);
+    border-radius: 4px;
+}
+
+#mB-mainV #mB-bottom-border01 {
     position: absolute;
     width: 99%;
     height: 10px;
@@ -134,13 +247,37 @@ input::-webkit-input-placeholder {
     left: 0.5%;
 }
 
-#mB-bottom-border02 {
+#mB-mainInV #mB-bottom-border01 {
+    position: absolute;
+    width: 99%;
+    height: 10px;
+    background-color: rgb(254, 254, 254);
+    box-sizing: border-box;
+    box-shadow: 0px 0px 10px rgba(161, 154, 154, 0.6);
+    z-index: -10;
+    bottom: -8px;
+    left: 0.5%;
+}
+
+#mB-mainV #mB-bottom-border02 {
     position: absolute;
     width: 98%;
     height: 10px;
     background-color: rgb(254, 254, 254);
     box-sizing: border-box;
-    box-shadow: 0px 0px 4px rgba(161, 154, 154, 0.6);
+    box-shadow: 0px 2px 4px rgba(161, 154, 154, 0.6);
+    z-index: -20;
+    bottom: -16px;
+    left: 1%;
+}
+
+#mB-mainInV #mB-bottom-border02 {
+    position: absolute;
+    width: 98%;
+    height: 10px;
+    background-color: rgb(254, 254, 254);
+    box-sizing: border-box;
+    box-shadow: 0px 2px 4px rgba(161, 154, 154, 0.6);
     z-index: -20;
     bottom: -16px;
     left: 1%;

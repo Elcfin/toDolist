@@ -1,6 +1,6 @@
 # toDolist
 
-## 4月13日
+## 4月12日
 
 - 一直没能连上gihub
 - 页面布局，主体部分处理了大部分，左侧aside处理了大部分，备忘：斜体和对话框样式，做item添加时调整一下shadow样式
@@ -8,4 +8,10 @@
 - 实现响应式
   - 媒体查询
   - min-width结合width:100%
-- 备忘：s的处理
+  - flex-wrap
+- 备忘：items的s
+
+## 4月13日
+
+- clip-path绘制图形
+- aside做完啦
