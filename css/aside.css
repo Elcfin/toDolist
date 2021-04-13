@@ -1,0 +1,94 @@
+#asideOut {
+    position: absolute;
+    top: 10px;
+    left: -300px;
+    width: 280px;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: rgb(251, 251, 251);
+    transition: left 0.5s;
+}
+
+#asideIn {
+    width: 260px;
+    box-sizing: border-box;
+    background-color: rgb(251, 251, 251);
+}
+
+#aside-top {
+    border-bottom: 1px dashed rgb(197, 197, 197);
+    width: 260px;
+    color: rgb(0, 0, 0);
+    padding-bottom: 20px;
+}
+
+#aside-title {
+    font-size: 24px;
+    margin-top: 4px;
+    margin-bottom: 10px;
+}
+
+#aside-top p {
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+
+#aside-top a {
+    font-size: 14px;
+    color: rgb(184, 63, 69);
+    text-decoration: none;
+}
+
+#aside-top a:hover {
+    color: rgb(120, 126, 126);
+    text-decoration: underline;
+}
+
+#aside-main {
+    width: 260px;
+    color: rgb(77, 77, 77);
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#aside-main p {
+    display: block;
+    background-color: rgb(241, 241, 241);
+    line-height: 20px;
+    font-size: 14px;
+}
+
+#aside-main a {
+    font-size: 14px;
+    color: rgb(184, 63, 69);
+    text-decoration: none;
+}
+
+#aside-main a:hover {
+    color: rgb(120, 126, 126);
+    text-decoration: underline;
+}
+
+#aside-bottom {
+    width: 260px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    color: rgb(77, 77, 77);
+    border-top: 1px dashed rgb(197, 197, 197);
+}
+
+#aside-bottom p {
+    line-height: 20px;
+    font-size: 14px;
+}
+
+#aside-bottom a {
+    font-size: 14px;
+    color: rgb(184, 63, 69);
+    text-decoration: none;
+}
+
+#aside-bottom a:hover {
+    color: rgb(120, 126, 126);
+    text-decoration: underline;
+}
