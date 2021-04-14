@@ -56,17 +56,6 @@ function buttonChoicedNumberChange() {
     }
 }
 
-function getLength() {
-    let todoItemInput = document.querySelectorAll(".todoItem Input");
-    let todoItemCheckedLength = 0;
-    for (let i = 0; i < todoItemInput.length; i++) {
-        if (todoItemInput[i].checked) {
-            todoItemCheckedLength++;
-        }
-    }
-    let todoItemUnCheckedLength = todoItemInput.length - todoItemCheckedLength;
-}
-
 function buttonChoicedItemsChange(id) {
     let todoItemInput = document.querySelectorAll(".todoItem Input");
     for (let i = 0; i < todoItemInput.length; i++) {

@@ -115,7 +115,7 @@
     width: 100%;
     min-height: 69px;
     background-color: rgb(254, 254, 254);
-    padding: 16px 16px 16px 0px;
+    padding: 16px 16px 16px 60px;
     line-height: 36px;
     font-size: 24px;
     color: rgb(77, 77, 77);
@@ -127,17 +127,15 @@
     flex-direction: row;
 }
 
-#mB-mainV #todoItemsAll .todoItem .todoItemInput,
-#mB-mainV #todoItemsActived .todoItem .todoItemInput,
-#mB-mainV #todoItemsCompleted .todoItem .todoItemInput {
-    width: 60px;
-    margin: auto 0;
-}
-
 #mB-mainV #todoItemsAll input[type="checkbox"],
 #mB-mainV #todoItemsActived input[type="checkbox"],
 #mB-mainV #todoItemsCompleted input[type="checkbox"] {
     width: 60px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    margin: auto 0;
 }
 
 
