@@ -207,6 +207,7 @@
 
 #mB-mainV #mB-bottom {
     width: 100%;
+    min-height: 46px;
     background-color: rgb(254, 254, 254);
     padding: 10px 10px 10px 24px;
     box-sizing: border-box;
@@ -227,13 +228,17 @@
 }
 
 #mB-mainV #numbers {
-    width: 70px;
-    margin-right: 30px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
     cursor: default;
 }
 
 #mB-mainV #buttons {
-    margin: auto;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translate(-50%, 0);
     display: flex;
     flex-direction: row;
 }
@@ -259,8 +264,9 @@
 }
 
 #mB-mainV #clearAll {
-    float: right;
-    margin-right: 24px;
+    position: absolute;
+    right: 24px;
+    top: 10px;
 }
 
 #mB-mainV #clearAll:hover {
