@@ -2,10 +2,11 @@ function createNewItem(content, newItemId) {
     let li = document.createElement('li');
     li.className = "todoItem";
     //li.innerHTML = "<div class='todoItemInput'>" + "<input type='checkbox' id='" + newItemId + "'>" + "</div>" + "<label for='" + newItemId + "'>" + content + "</label>" + "<div class='delet'><img src='img\\cross.svg'></div>";
-    li.innerHTML = "<input type='checkbox' id='" + newItemId + "'>" + "<label for='" + newItemId + "'>" + content + "</label>" + "<div class='delet'><img src='img\\cross.svg'></div>";
+    li.innerHTML = "<input type='checkbox' id='" + newItemId + "'>" + "<label for='" + newItemId + "'>" + content + "</label>" + "<div class='delete'><img src='img\\cross.svg'></div>";
     li.addEventListener("click", function (event) {
         if (event.target.type == "checkbox") {
             buttonChoicedNumberChange();
+            buttonChoicedItemsChange();
         }
     }, false);
     let ul = document.querySelector("ul");
@@ -56,12 +57,13 @@ function buttonChoicedNumberChange() {
     }
 }
 
-function buttonChoicedItemsChange(id) {
+function buttonChoicedItemsChange() {
+    let todoItems = document.querySelector("#todoItemsAll, #todoItemsActived, #todoItemsCompleted");
     let todoItemInput = document.querySelectorAll(".todoItem Input");
     for (let i = 0; i < todoItemInput.length; i++) {
-        if ((!todoItemInput[i].checked) && id == "todoItemsCompleted") {
+        if ((!todoItemInput[i].checked) && todoItems.id == "todoItemsCompleted") {
             todoItemInput[i].parentNode.style.display = "none";
-        } else if (todoItemInput[i].checked && id == "todoItemsActived") {
+        } else if (todoItemInput[i].checked && todoItems.id == "todoItemsActived") {
             todoItemInput[i].parentNode.style.display = "none";
         } else {
             todoItemInput[i].parentNode.style.display = "flex";
@@ -88,14 +90,52 @@ function buttonChoiced(event) {
             }
             event.target.id = "b-Choiced";
             buttonChoicedNumberChange();
-            buttonChoicedItemsChange(todoItems.id);
+            buttonChoicedItemsChange();
         }
     }, false)
 }
 
-window.onload = function (event) {
-    buttonChoiced(event);
+function checkAll() {
+    let mainBody = document.querySelector("#mainBody");
+    mainBody.addEventListener("click", function (event) {
+        if (event.target.id == "checkAll" || event.target.id == "uncheckAll") {
+            let todoItemInput = document.querySelectorAll(".todoItem Input");
+            let flag = true;
+            for (let i = 0; i < todoItemInput.length; i++) {
+                if (!todoItemInput[i].checked) {
+                    flag = false;
+                }
+            }
+            if (flag) {
+                for (let i = 0; i < todoItemInput.length; i++) {
+                    todoItemInput[i].checked = false;
+                }
+                event.target.id = "checkAll";
+                buttonChoicedNumberChange();
+                buttonChoicedItemsChange();
+            } else if (!flag) {
+                for (let i = 0; i < todoItemInput.length; i++) {
+                    todoItemInput[i].checked = true;
+                }
+                event.target.id = "uncheckAll";
+                buttonChoicedNumberChange();
+                buttonChoicedItemsChange();
+            }
+        }
+
+    }, false);
 }
+
+
+
+window.addEventListener("load", function (event) {
+    buttonChoiced(event);
+}, false);
+
+window.addEventListener("load", function (event) {
+    checkAll(event);
+}, false);
+
 window.addEventListener("click",
     function (event) {
         if (event.target.id == "createTodo") {

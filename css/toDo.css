@@ -29,6 +29,37 @@
     justify-content: space-around;
     box-sizing: border-box;
     margin: 0;
+    position: relative;
+}
+
+#mB-mainV #mB-input #checkAll {
+    width: 60px;
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: bold;
+    color: rgb(230, 230, 230);
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(0, -30%);
+    margin: auto 0;
+    cursor: default;
+}
+
+#mB-mainV #mB-input #uncheckAll {
+    width: 60px;
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: bold;
+    color: rgb(115, 115, 115);
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(0, -30%);
+    margin: auto 0;
+    cursor: default;
 }
 
 #mB-mainInV #mB-input {
@@ -38,6 +69,10 @@
     justify-content: space-around;
     box-sizing: border-box;
     margin: 0;
+}
+
+#mB-mainInV #mB-input div {
+    display: none;
 }
 
 #mB-mainV #mB-input input[type="text"] {
@@ -146,11 +181,11 @@
     color: rgb(217, 217, 217);
 }
 
-#mB-mainV .todoItem .delet {
+#mB-mainV .todoItem .delete {
     display: none;
 }
 
-#mB-mainV .todoItem:hover .delet {
+#mB-mainV .todoItem:hover .delete {
     display: block;
     position: absolute;
     height: 68px;
@@ -159,13 +194,13 @@
     bottom: 0;
 }
 
-#mB-mainV .todoItem:hover .delet img {
+#mB-mainV .todoItem:hover .delete img {
     margin: 25px;
     height: 18px;
     transition: filter 0.2s;
 }
 
-#mB-mainV .todoItem:hover .delet img:hover {
+#mB-mainV .todoItem:hover .delete img:hover {
     filter: brightness(0.7);
     transition: filter 0.2s;
 }
