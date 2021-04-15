@@ -1,7 +1,6 @@
 function createNewItem(content, newItemId) {
     let li = document.createElement('li');
     li.className = "todoItem";
-    //li.innerHTML = "<div class='todoItemInput'>" + "<input type='checkbox' id='" + newItemId + "'>" + "</div>" + "<label for='" + newItemId + "'>" + content + "</label>" + "<div class='delet'><img src='img\\cross.svg'></div>";
     li.innerHTML = "<input type='checkbox' class='inputCh' id='" + newItemId + "'>" + "<label for='" + newItemId + "' class='labelCh'><img src='img\\tick.svg'></label>" + "<label for='inputTe' class='labelTe'>" + content + "</label>" + "<div class='delete'><img class='deleteIcon' src='img\\cross.svg'></div>";
     li.addEventListener("click", function (event) {
         if (event.target.type == "checkbox") {
@@ -14,8 +13,11 @@ function createNewItem(content, newItemId) {
         }
     }, false);
     li.addEventListener("dblclick", function (event) {
+        let inputTe = document.querySelector("#inputTe");
         if (event.target.className == "inputCh") {
             event.preventDefault();
+        } else if (inputTe) {
+            return;
         } else {
             let inputCh = this.querySelector("input[type=checkbox]");
             let inputTe = document.createElement("input");
@@ -49,6 +51,7 @@ function public() {
             mBmainInV.id = "mB-mainV";
         }
         buttonChoicedNumberChange();
+        buttonChoicedItemsChange();
     }
 }
 
@@ -63,7 +66,7 @@ function buttonChoicedNumberChange() {
     }
     let todoItemUnCheckedLength = todoItemInput.length - todoItemCheckedLength;
 
-    let checkAll = document.querySelector("#checkAll,#uncheckAll");
+    let checkAll = document.querySelector("#checkAll, #uncheckAll");
     let clearCompleted = document.querySelector("#clearCompleted");
     if (todoItemCheckedLength) {
         clearCompleted.style.display = "block";
@@ -235,6 +238,13 @@ window.addEventListener("click",
             let inputTe = document.querySelector("#inputTe");
             if (inputTe) {
                 {
+                    if (inputTe.value == "") {
+                        let li = inputTe.parentNode;
+                        li.parentNode.removeChild(li);
+                        buttonChoicedNumberChange();
+                        buttonChoicedItemsChange();
+                        return;
+                    }
                     let label = inputTe.parentNode.querySelector(".labelTe");
                     let inputCh = inputTe.parentNode.querySelector(".inputCh");
                     let deleteInV = inputTe.parentNode.querySelector(".deleteInV");
@@ -253,6 +263,13 @@ window.addEventListener("keyup",
             let inputTe = document.querySelector("#inputTe");
             if (inputTe) {
                 {
+                    if (inputTe.value == "") {
+                        let li = inputTe.parentNode;
+                        li.parentNode.removeChild(li);
+                        buttonChoicedNumberChange();
+                        buttonChoicedItemsChange();
+                        return;
+                    }
                     let label = inputTe.parentNode.querySelector(".labelTe");
                     let inputCh = inputTe.parentNode.querySelector(".inputCh");
                     let deleteInV = inputTe.parentNode.querySelector(".deleteInV");
