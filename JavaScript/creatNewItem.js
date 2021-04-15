@@ -2,9 +2,13 @@ function createNewItem(content, newItemId) {
     let li = document.createElement('li');
     li.className = "todoItem";
     //li.innerHTML = "<div class='todoItemInput'>" + "<input type='checkbox' id='" + newItemId + "'>" + "</div>" + "<label for='" + newItemId + "'>" + content + "</label>" + "<div class='delet'><img src='img\\cross.svg'></div>";
-    li.innerHTML = "<input type='checkbox' id='" + newItemId + "'>" + "<label for='" + newItemId + "'>" + content + "</label>" + "<div class='delete'><img src='img\\cross.svg'></div>";
+    li.innerHTML = "<input type='checkbox' id='" + newItemId + "'>" + "<label for='" + newItemId + "'>" + content + "</label>" + "<div class='delete'><img class='deleteIcon' src='img\\cross.svg'></div>";
     li.addEventListener("click", function (event) {
         if (event.target.type == "checkbox") {
+            buttonChoicedNumberChange();
+            buttonChoicedItemsChange();
+        } else if (event.target.className == "deleteIcon") {
+            deleteItem(this);
             buttonChoicedNumberChange();
             buttonChoicedItemsChange();
         }
@@ -40,6 +44,29 @@ function buttonChoicedNumberChange() {
         }
     }
     let todoItemUnCheckedLength = todoItemInput.length - todoItemCheckedLength;
+
+    let checkAll = document.querySelector("#checkAll,#uncheckAll");
+    let clearCompleted = document.querySelector("#clearCompleted");
+    if (todoItemCheckedLength) {
+        clearCompleted.style.display = "block";
+        if (!todoItemUnCheckedLength && checkAll.id == "checkAll") {
+            checkAll.id = "uncheckAll";
+        } else if (todoItemUnCheckedLength && checkAll.id == "uncheckAll") {
+            checkAll.id = "checkAll";
+        }
+    } else {
+        clearCompleted.style.display = "none";
+        if (checkAll.id == "uncheckAll") {
+            checkAll.id = "checkAll";
+        }
+    }
+
+    if (!todoItemInput.length) {
+        let mBmainV = document.querySelector("#mB-mainV");
+        if (mBmainV) {
+            mBmainV.id = "mB-mainInV";
+        }
+    }
 
     let bChoiced = document.querySelector("#b-Choiced");
     if (bChoiced.innerHTML == "All" || bChoiced.innerHTML == "Active") {
@@ -104,6 +131,7 @@ function checkAll() {
             for (let i = 0; i < todoItemInput.length; i++) {
                 if (!todoItemInput[i].checked) {
                     flag = false;
+                    break;
                 }
             }
             if (flag) {
@@ -126,7 +154,36 @@ function checkAll() {
     }, false);
 }
 
+function deleteItem(todoItem) {
+    todoItem.parentNode.removeChild(todoItem);
+}
 
+function clearCompleted() {
+    let clearCompleted = document.querySelector("#clearCompleted");
+    clearCompleted.addEventListener("click", function () {
+        let todoItem = document.querySelectorAll(".todoItem");
+        let flag = true;
+        for (let i = 0; i < todoItem.length; i++) {
+            let todoItemInput = todoItem[i].querySelector("input");
+            if (todoItemInput.checked) {
+                todoItem[i].parentNode.removeChild(todoItem[i]);
+            } else {
+                flag = false;
+            }
+        }
+        if (flag) {
+            let mBmainV = document.querySelector("#mB-mainV");
+            if (mBmainV) {
+                mBmainV.id = "mB-mainInV";
+            }
+        }
+        clearCompleted.style.display = "none";
+    }, false);
+}
+
+window.addEventListener("load", function (event) {
+    clearCompleted();
+}, false);
 
 window.addEventListener("load", function (event) {
     buttonChoiced(event);
