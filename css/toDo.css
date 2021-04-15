@@ -171,27 +171,98 @@
     top: 50%;
     transform: translate(0, -50%);
     margin: auto 0;
+    visibility: hidden;
 }
 
+#mB-mainV #todoItemsAll .labelCh,
+#mB-mainV #todoItemsActived .labelCh,
+#mB-mainV #todoItemsCompleted .labelCh {
+    border: 1px solid rgb(237, 237, 237);
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translate(0, -50%);
+    margin: auto 0;
+}
 
-#mB-mainV #todoItemsAll .todoItem input[type="checkbox"]:checked+label,
-#mB-mainV #todoItemsActived .todoItem input[type="checkbox"]:checked+label,
-#mB-mainV #todoItemsCompleted .todoItem input[type="checkbox"]:checked+label {
+/*#mB-mainV #todoItemsAll .todoItem input[type="checkbox"]:checked+.labelCh,
+#mB-mainV #todoItemsActived .todoItem input[type="checkbox"]:checked+.labelCh,
+#mB-mainV #todoItemsCompleted .todoItem input[type="checkbox"]:checked+.labelCh {
+    border: 8px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    background-color: rgb(234, 215, 215);
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translate(0, -50%);
+    margin: auto 0;
+}*/
+
+#mB-mainV #todoItemsAll .todoItem input[type="checkbox"]:checked+.labelCh,
+#mB-mainV #todoItemsActived .todoItem input[type="checkbox"]:checked+.labelCh,
+#mB-mainV #todoItemsCompleted .todoItem input[type="checkbox"]:checked+.labelCh {
+    border: 1px solid rgb(189, 218, 213);
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translate(0, -50%);
+    margin: auto 0;
+}
+
+#mB-mainV #todoItemsAll .todoItem .labelCh img,
+#mB-mainV #todoItemsActived .todoItem .labelCh img,
+#mB-mainV #todoItemsCompleted .todoItem .labelCh img {
+    display: none;
+}
+
+#mB-mainV #todoItemsAll .todoItem input[type="checkbox"]:checked+.labelCh img,
+#mB-mainV #todoItemsActived .todoItem input[type="checkbox"]:checked+.labelCh img,
+#mB-mainV #todoItemsCompleted .todoItem input[type="checkbox"]:checked+.labelCh img {
+    display: block;
+    margin: 6px auto;
+    width: 16px;
+    height: 16px;
+}
+
+#mB-mainV #todoItemsAll input[type="text"],
+#mB-mainV #todoItemsActived input[type="text"],
+#mB-mainV #todoItemsCompleted input[type="text"] {
+    width: 100%;
+    height: 36px;
+    line-height: 36px;
+    font-size: 24px;
+    color: rgb(77, 77, 77);
+}
+
+#mB-mainV #todoItemsAll .todoItem input[type="checkbox"]:checked~.labelTe,
+#mB-mainV #todoItemsActived .todoItem input[type="checkbox"]:checked~.labelTe,
+#mB-mainV #todoItemsCompleted .todoItem input[type="checkbox"]:checked~.labelTe {
     text-decoration: line-through;
     color: rgb(217, 217, 217);
 }
 
-#mB-mainV .todoItem .delete {
-    display: none;
-}
-
-#mB-mainV .todoItem:hover .delete {
-    display: block;
+#mB-mainV .todoItem .delete,
+#mB-mainV .todoItem .deleteInV {
     position: absolute;
     height: 68px;
     width: 68px;
     right: 0;
     bottom: 0;
+    display: none;
+}
+
+#mB-mainV .todoItem:hover .delete {
+    display: block;
 }
 
 #mB-mainV .todoItem:hover .delete img {

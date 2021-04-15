@@ -2,7 +2,7 @@ function createNewItem(content, newItemId) {
     let li = document.createElement('li');
     li.className = "todoItem";
     //li.innerHTML = "<div class='todoItemInput'>" + "<input type='checkbox' id='" + newItemId + "'>" + "</div>" + "<label for='" + newItemId + "'>" + content + "</label>" + "<div class='delet'><img src='img\\cross.svg'></div>";
-    li.innerHTML = "<input type='checkbox' id='" + newItemId + "'>" + "<label for='" + newItemId + "'>" + content + "</label>" + "<div class='delete'><img class='deleteIcon' src='img\\cross.svg'></div>";
+    li.innerHTML = "<input type='checkbox' class='inputCh' id='" + newItemId + "'>" + "<label for='" + newItemId + "' class='labelCh'><img src='img\\tick.svg'></label>" + "<label for='inputTe' class='labelTe'>" + content + "</label>" + "<div class='delete'><img class='deleteIcon' src='img\\cross.svg'></div>";
     li.addEventListener("click", function (event) {
         if (event.target.type == "checkbox") {
             buttonChoicedNumberChange();
@@ -12,6 +12,24 @@ function createNewItem(content, newItemId) {
             buttonChoicedNumberChange();
             buttonChoicedItemsChange();
         }
+    }, false);
+    li.addEventListener("dblclick", function (event) {
+        if (event.target.className == "inputCh") {
+            event.preventDefault();
+        } else {
+            let inputCh = this.querySelector("input[type=checkbox]");
+            let inputTe = document.createElement("input");
+            let label = this.querySelector(".labelTe");
+            inputCh.style.display = "none";
+            inputTe.type = "text";
+            inputTe.id = "inputTe";
+            inputTe.value = label.innerHTML;
+            label.innerHTML = "";
+            this.insertBefore(inputTe, label);
+            let deleteOut = this.querySelector(".delete");
+            deleteOut.className = "deleteInV";
+        }
+
     }, false);
     let ul = document.querySelector("ul");
     let shadow = document.querySelector("#shadow");
@@ -206,5 +224,43 @@ window.addEventListener("keyup",
     function (event) {
         if (event.code == "Enter") {
             public();
+        }
+    }, false);
+
+window.addEventListener("click",
+    function (event) {
+        if (event.target.id == "inputTe") {
+            event.preventDefault();
+        } else {
+            let inputTe = document.querySelector("#inputTe");
+            if (inputTe) {
+                {
+                    let label = inputTe.parentNode.querySelector(".labelTe");
+                    let inputCh = inputTe.parentNode.querySelector(".inputCh");
+                    let deleteInV = inputTe.parentNode.querySelector(".deleteInV");
+                    deleteInV.className = "delete";
+                    label.innerHTML = inputTe.value;
+                    inputCh.style.display = "block";
+                    inputTe.parentNode.removeChild(inputTe);
+                }
+            }
+        }
+    }, false);
+
+window.addEventListener("keyup",
+    function (event) {
+        if (event.code == "Enter") {
+            let inputTe = document.querySelector("#inputTe");
+            if (inputTe) {
+                {
+                    let label = inputTe.parentNode.querySelector(".labelTe");
+                    let inputCh = inputTe.parentNode.querySelector(".inputCh");
+                    let deleteInV = inputTe.parentNode.querySelector(".deleteInV");
+                    deleteInV.className = "delete";
+                    label.innerHTML = inputTe.value;
+                    inputCh.style.display = "block";
+                    inputTe.parentNode.removeChild(inputTe);
+                }
+            }
         }
     }, false);
