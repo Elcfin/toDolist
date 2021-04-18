@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
   <meta charset="UTF-8">
@@ -7,34 +7,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="css\index.css">
   <link rel="stylesheet" type="text/css" href="css\aside.css">
-  <link rel="stylesheet" type="text/css" href="css\toDo.css">
+  <link rel="stylesheet" type="text/css" href="css\todo.css">
   <style>
     @media (min-width: 900px) {
-      #totalBody {
+      #total-body {
         padding-left: 300px;
         transition: padding 0.5s;
       }
 
-      #asideOut {
+      #aside-out {
         left: 10px;
         transition: left 0.5s;
       }
     }
 
     @media (max-width: 480px) {
-      #mB-mainV #buttons {
+      #body-main-v #buttons {
         top: 36px;
       }
 
-      #mB-mainV #mB-bottom {
-        width: 100%;
-        min-height: 72px;
-        background-color: rgb(254, 254, 254);
+      #body-main-v #body-bottom {
         padding: 10px 10px 10px 24px;
         box-sizing: border-box;
         display: flex;
         flex-wrap: wrap;
         position: relative;
+        width: 100%;
+        min-height: 72px;
+        background-color: rgb(254, 254, 254);
       }
     }
   </style>
@@ -42,13 +42,13 @@
 </head>
 
 <body>
-  <div id="totalBody">
-    <div id="asideOut">
-      <div id="asideIn">
+  <div id="total-body">
+    <div id="aside-out">
+      <div id="aside-in">
         <div id="aside-top">
           <div id="aside-title">JavaScript</div>
           <p>Vanilla JavaScript Example</p>
-          <a href="https://github.com/tastejs/todomvc/tree/gh-pages/examples/vanillajs">
+          <a href="https://github.com/tastejs/todomvc/tree/gh-pages/examples/vanillajs/">
             Source</a>
         </div>
         <div id="aside-main">
@@ -56,42 +56,42 @@
             first-class functions, most known as the scripting language for Web pages, but used in many non-browser
             environments as well such as node.js or Apache CouchDB.</p>
           <div id="triangle"></div>
-          <a href="http://developer.mozilla.org/en-US/docs/JavaScript">
+          <a href="http://developer.mozilla.org/en-US/docs/JavaScript/">
             JavaScript</a>
         </div>
         <div id="aside-bottom">
           <p>If you have other helpful links to share, or find any of the links above no longer work, please
-            <a href="https://github.com/tastejs/todomvc/issues">
+            <a href="https://github.com/tastejs/todomvc/issues/">
               let us know</a>.
           </p>
         </div>
       </div>
     </div>
-    <div id="toDO">
-      <div id="mainBody">
-        <div id="mB-title">
+    <div id="todo">
+      <div id="main-body">
+        <div id="body-title">
           todos
         </div>
-        <div id="mB-mainInV">
-          <div id="mB-input">
-            <div id="checkAll">﹀</div>
-            <input type="text" id="createTodo" placeholder="What needs to be done?" autofocus>
+        <div id="body-main-inv">
+          <div id="body-input">
+            <div id="check-all">﹀</div>
+            <input type="text" id="create-todo" placeholder="What needs to be done?" autofocus>
           </div>
-          <div id="todoItemsAll">
+          <div id="todoitems-all">
             <ul>
               <li id="shadow"></li>
             </ul>
           </div>
-          <div id="mB-bottom">
+          <div id="body-bottom">
             <div id="numbers">0&nbsp;items&nbsp;left</div>
             <div id="buttons">
-              <div id="b-Choiced">All</div>
+              <div id="b-choiced">All</div>
               <div>Active</div>
               <div>Completed</div>
             </div>
-            <div id="clearCompleted">Clear&nbsp;completed</div>
-            <div id="mB-bottom-border01"></div>
-            <div id="mB-bottom-border02"></div>
+            <div id="clear-completed">Clear&nbsp;completed</div>
+            <div id="body-bottom-border01"></div>
+            <div id="body-bottom-border02"></div>
           </div>
         </div>
       </div>
@@ -100,8 +100,12 @@
       </div>
     </div>
   </div>
+  <script type="text/javascript" src="JavaScript\index.js"></script>
   <script type="text/javascript" src="JavaScript\creatNewItem.js"></script>
-  <script type="text/javascript" src="JavaScript\deletItem.js"></script>
+  <script type="text/javascript" src="JavaScript\deleteItem.js"></script>
+  <script type="text/javascript" src="JavaScript\editItem.js"></script>
+  <script type="text/javascript" src="JavaScript\check.js"></script>
+  <script type="text/javascript" src="JavaScript\buttonChange.js"></script>
 </body>
 
 </html>

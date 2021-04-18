@@ -1,388 +1,336 @@
-#toDO {
-    width: 100%;
-    max-width: 560px;
-    min-width: 240px;
-    margin: auto;
+#todo {
+  margin: auto;
+  width: 100%;
+  max-width: 560px;
+  min-width: 240px;
 }
 
-#mB-title {
-    height: 115px;
-    font-size: 90px;
-    color: rgb(234, 215, 215);
-    line-height: 115px;
-    text-align: center;
-    margin: 10px auto;
+#body-title {
+  margin: 10px auto;
+  height: 115px;
+  font-size: 90px;
+  color: rgb(234, 215, 215);
+  line-height: 115px;
+  text-align: center;
 }
 
-#mB-mainV {
-    box-shadow: 0px 2px 6px rgba(161, 154, 154, 0.6);
+#body-main-v {
+  box-shadow: 0px 2px 6px rgba(161, 154, 154, 0.6);
 }
 
-#mB-mainInV {
-    box-shadow: 0px 4px 10px rgba(161, 154, 154, 0.6);
+#body-main-inv {
+  box-shadow: 0px 4px 10px rgba(161, 154, 154, 0.6);
 }
 
-#mB-mainV #mB-input {
-    height: 68px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    box-sizing: border-box;
-    margin: 0;
-    position: relative;
+#body-main-v #body-input,
+#body-main-inv #body-input {
+  margin: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  box-sizing: border-box;
+  height: 68px;
 }
 
-#mB-mainV #mB-input #checkAll {
-    width: 60px;
-    font-size: 20px;
-    line-height: 20px;
-    font-weight: bold;
-    color: rgb(230, 230, 230);
-    text-align: center;
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translate(0, -30%);
-    margin: auto 0;
-    cursor: default;
+#body-main-v #body-input #check-all,
+#body-main-v #body-input #uncheck-all {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -30%);
+  margin: auto 0;
+  width: 60px;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: bold;
+  text-align: center;
+  cursor: default;
 }
 
-#mB-mainV #mB-input #uncheckAll {
-    width: 60px;
-    font-size: 20px;
-    line-height: 20px;
-    font-weight: bold;
-    color: rgb(115, 115, 115);
-    text-align: center;
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translate(0, -30%);
-    margin: auto 0;
-    cursor: default;
+#body-main-v #body-input #check-all {
+  color: rgb(230, 230, 230);
 }
 
-#mB-mainInV #mB-input {
-    height: 68px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    box-sizing: border-box;
-    margin: 0;
+#body-main-v #body-input #uncheck-all {
+  color: rgb(115, 115, 115);
 }
 
-#mB-mainInV #mB-input div {
-    display: none;
+#body-main-inv #body-input div {
+  display: none;
 }
 
-#mB-mainV #mB-input input[type="text"] {
-    font: inherit;
-    width: 100%;
-    height: 68px;
-    background-color: rgb(254, 254, 254);
-    padding: 16px 16px 16px 60px;
-    line-height: 36px;
-    font-size: 24px;
-    color: rgb(77, 77, 77);
-    box-sizing: border-box;
-    outline: 0;
-    border: none;
+#body-main-v #body-input input[type="text"],
+#body-main-inv #body-input input[type="text"] {
+  padding: 16px 16px 16px 60px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 68px;
+  font: inherit;
+  line-height: 36px;
+  font-size: 24px;
+  color: rgb(77, 77, 77);
+  background-color: rgb(254, 254, 254);
+  outline: 0;
+  border: none;
 }
 
-#mB-mainInV #mB-input input[type="text"] {
-    font: inherit;
-    width: 100%;
-    height: 68px;
-    background-color: rgb(254, 254, 254);
-    padding: 16px 16px 16px 60px;
-    line-height: 36px;
-    font-size: 24px;
-    color: rgb(77, 77, 77);
-    box-sizing: border-box;
-    outline: 0;
-    border: none;
+#body-main-v input::-webkit-input-placeholder,
+#body-main-inv input::-webkit-input-placeholder {
+  color: rgb(230, 230, 230);
+  font-style: italic;
 }
 
-#mB-mainV input::-webkit-input-placeholder {
-    color: rgb(230, 230, 230);
-    font-style: italic;
+#body-main-v #todoitems-all,
+#body-main-v #todoitems-active,
+#body-main-v #todoitems-completed {
+  margin: 0;
 }
 
-#mB-mainInV input::-webkit-input-placeholder {
-    color: rgb(230, 230, 230);
-    font-style: italic;
+#body-main-inv #todoitems-all,
+#body-main-inv #todoitems-active,
+#body-main-inv #todoitems-completed {
+  display: none;
 }
 
-#mB-mainV #todoItemsAll,
-#mB-mainV #todoItemsActived,
-#mB-mainV #todoItemsCompleted {
-    margin: 0;
+#body-main-v #todoitems-all ul,
+#body-main-v #todoitems-active ul,
+#body-main-v #todoitems-completed ul {
+  margin: 0px;
+  padding: 0px;
+  /*可以覆盖住上面的阴影*/
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(254, 254, 254);
+  list-style: none;
 }
 
-#mB-mainInV #todoItemsAll,
-#mB-mainInV #todoItemsActived,
-#mB-mainInV #todoItemsCompleted {
-    display: none;
+#body-main-v #shadow {
+  box-sizing: border-box;
+  width: 100%;
+  height: 1px;
+  background-color: rgb(254, 254, 254);
+  border-top: 1px solid rgba(161, 154, 154, 0.2);
+  box-shadow: 0px -1px 1px rgba(161, 154, 154, 0.2);
 }
 
-#mB-mainV #todoItemsAll ul,
-#mB-mainV #todoItemsActived ul,
-#mB-mainV #todoItemsCompleted ul {
-    list-style: none;
-    background-color: rgb(254, 254, 254);
-    margin: 0px;
-    padding: 0px;
-    /*可以覆盖住上面的阴影*/
-    display: flex;
-    flex-direction: column;
+#body-main-v #todoitems-all .todoitem,
+#body-main-v #todoitems-active .todoitem,
+#body-main-v #todoitems-completed .todoitem {
+  padding: 16px 16px 16px 60px;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: 69px;
+  line-height: 36px;
+  font-size: 24px;
+  color: rgb(77, 77, 77);
+  background-color: rgb(254, 254, 254);
+  word-break: break-all;
+  border-bottom: 1px solid rgb(230, 230, 230);
 }
 
-#mB-mainV #shadow {
-    width: 100%;
-    height: 1px;
-    background-color: rgb(254, 254, 254);
-    box-sizing: border-box;
-    border-top: 1px solid rgba(161, 154, 154, 0.2);
-    box-shadow: 0px -1px 1px rgba(161, 154, 154, 0.2);
+#body-main-v #todoitems-all input[type="checkbox"],
+#body-main-v #todoitems-active input[type="checkbox"],
+#body-main-v #todoitems-completed input[type="checkbox"] {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  margin: auto 0;
+  width: 60px;
+  visibility: hidden;
 }
 
-#mB-mainV #todoItemsAll .todoItem,
-#mB-mainV #todoItemsActived .todoItem,
-#mB-mainV #todoItemsCompleted .todoItem {
-    width: 100%;
-    min-height: 69px;
-    background-color: rgb(254, 254, 254);
-    padding: 16px 16px 16px 60px;
-    line-height: 36px;
-    font-size: 24px;
-    color: rgb(77, 77, 77);
-    word-break: break-all;
-    border-bottom: 1px solid rgb(230, 230, 230);
-    box-sizing: border-box;
-    position: relative;
-    display: flex;
-    flex-direction: row;
+#body-main-v #todoitems-all .label-ch,
+#body-main-v #todoitems-active .label-ch,
+#body-main-v #todoitems-completed .label-ch,
+#body-main-v #todoitems-all .todoitem input[type="checkbox"]:checked+.label-ch,
+#body-main-v #todoitems-active .todoitem input[type="checkbox"]:checked+.label-ch,
+#body-main-v #todoitems-completed .todoitem input[type="checkbox"]:checked+.label-ch {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translate(0, -50%);
+  margin: auto 0;
+  width: 28px;
+  height: 28px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
 }
 
-#mB-mainV #todoItemsAll input[type="checkbox"],
-#mB-mainV #todoItemsActived input[type="checkbox"],
-#mB-mainV #todoItemsCompleted input[type="checkbox"] {
-    width: 60px;
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translate(0, -50%);
-    margin: auto 0;
-    visibility: hidden;
+#body-main-v #todoitems-all .label-ch,
+#body-main-v #todoitems-active .label-ch,
+#body-main-v #todoitems-completed .label-ch {
+  border: 1px solid rgb(237, 237, 237);
 }
 
-#mB-mainV #todoItemsAll .labelCh,
-#mB-mainV #todoItemsActived .labelCh,
-#mB-mainV #todoItemsCompleted .labelCh {
-    border: 1px solid rgb(237, 237, 237);
-    border-radius: 50%;
-    width: 28px;
-    height: 28px;
-    background-color: rgb(255, 255, 255);
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translate(0, -50%);
-    margin: auto 0;
+#body-main-v #todoitems-all .todoitem input[type="checkbox"]:checked+.label-ch,
+#body-main-v #todoitems-active .todoitem input[type="checkbox"]:checked+.label-ch,
+#body-main-v #todoitems-completed .todoitem input[type="checkbox"]:checked+.label-ch {
+  border: 1px solid rgb(189, 218, 213);
 }
 
-/*#mB-mainV #todoItemsAll .todoItem input[type="checkbox"]:checked+.labelCh,
-#mB-mainV #todoItemsActived .todoItem input[type="checkbox"]:checked+.labelCh,
-#mB-mainV #todoItemsCompleted .todoItem input[type="checkbox"]:checked+.labelCh {
-    border: 8px solid rgb(255, 255, 255);
-    border-radius: 50%;
-    width: 14px;
-    height: 14px;
-    background-color: rgb(234, 215, 215);
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translate(0, -50%);
-    margin: auto 0;
-}*/
-
-#mB-mainV #todoItemsAll .todoItem input[type="checkbox"]:checked+.labelCh,
-#mB-mainV #todoItemsActived .todoItem input[type="checkbox"]:checked+.labelCh,
-#mB-mainV #todoItemsCompleted .todoItem input[type="checkbox"]:checked+.labelCh {
-    border: 1px solid rgb(189, 218, 213);
-    border-radius: 50%;
-    width: 28px;
-    height: 28px;
-    background-color: rgb(255, 255, 255);
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translate(0, -50%);
-    margin: auto 0;
+#body-main-v #todoitems-all .todoitem .label-ch img,
+#body-main-v #todoitems-active .todoitem .label-ch img,
+#body-main-v #todoitems-completed .todoitem .label-ch img {
+  display: none;
 }
 
-#mB-mainV #todoItemsAll .todoItem .labelCh img,
-#mB-mainV #todoItemsActived .todoItem .labelCh img,
-#mB-mainV #todoItemsCompleted .todoItem .labelCh img {
-    display: none;
+#body-main-v #todoitems-all .todoitem input[type="checkbox"]:checked+.label-ch img,
+#body-main-v #todoitems-active .todoitem input[type="checkbox"]:checked+.label-ch img,
+#body-main-v #todoitems-completed .todoitem input[type="checkbox"]:checked+.label-ch img {
+  display: block;
+  margin: 6px auto;
+  width: 16px;
+  height: 16px;
 }
 
-#mB-mainV #todoItemsAll .todoItem input[type="checkbox"]:checked+.labelCh img,
-#mB-mainV #todoItemsActived .todoItem input[type="checkbox"]:checked+.labelCh img,
-#mB-mainV #todoItemsCompleted .todoItem input[type="checkbox"]:checked+.labelCh img {
-    display: block;
-    margin: 6px auto;
-    width: 16px;
-    height: 16px;
+#body-main-v #todoitems-all input[type="text"],
+#body-main-v #todoitems-active input[type="text"],
+#body-main-v #todoitems-completed input[type="text"] {
+  width: 100%;
+  height: 35px;
+  font: inherit;
+  line-height: 35px;
+  font-size: 24px;
+  color: rgb(77, 77, 77);
+  background-color: rgb(255, 255, 255);
+  border: 0.5px solid rgb(153, 153, 153);
+  box-shadow: inset 0px 0px 4px rgb(153, 153, 153);
+  outline: 0;
 }
 
-#mB-mainV #todoItemsAll input[type="text"],
-#mB-mainV #todoItemsActived input[type="text"],
-#mB-mainV #todoItemsCompleted input[type="text"] {
-    font: inherit;
-    width: 100%;
-    height: 35px;
-    line-height: 35px;
-    font-size: 24px;
-    color: rgb(77, 77, 77);
-    border: 0.5px solid rgb(153, 153, 153);
-    background-color: rgb(255, 255, 255);
-    box-shadow: inset 0px 0px 4px rgb(153, 153, 153);
-    outline: 0;
+#body-main-v #todoitems-all .todoitem input[type="checkbox"]:checked~.label-te,
+#body-main-v #todoitems-active .todoitem input[type="checkbox"]:checked~.label-te,
+#body-main-v #todoitems-completed .todoitem input[type="checkbox"]:checked~.label-te {
+  text-decoration: line-through;
+  color: rgb(217, 217, 217);
 }
 
-#mB-mainV #todoItemsAll .todoItem input[type="checkbox"]:checked~.labelTe,
-#mB-mainV #todoItemsActived .todoItem input[type="checkbox"]:checked~.labelTe,
-#mB-mainV #todoItemsCompleted .todoItem input[type="checkbox"]:checked~.labelTe {
-    text-decoration: line-through;
-    color: rgb(217, 217, 217);
+#body-main-v .todoitem .delete,
+#body-main-v .todoitem .delete-inv {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: none;
+  height: 68px;
+  width: 68px;
 }
 
-#mB-mainV .todoItem .delete,
-#mB-mainV .todoItem .deleteInV {
-    position: absolute;
-    height: 68px;
-    width: 68px;
-    right: 0;
-    bottom: 0;
-    display: none;
+#body-main-v .todoitem:hover .delete {
+  display: block;
 }
 
-#mB-mainV .todoItem:hover .delete {
-    display: block;
+#body-main-v .todoitem:hover .delete img {
+  margin: 25px;
+  height: 18px;
+  transition: filter 0.2s;
 }
 
-#mB-mainV .todoItem:hover .delete img {
-    margin: 25px;
-    height: 18px;
-    transition: filter 0.2s;
+#body-main-v .todoitem:hover .delete img:hover {
+  filter: brightness(0.7);
+  transition: filter 0.2s;
 }
 
-#mB-mainV .todoItem:hover .delete img:hover {
-    filter: brightness(0.7);
-    transition: filter 0.2s;
+#body-main-v #body-bottom {
+  padding: 10px 10px 10px 24px;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  width: 100%;
+  min-height: 46px;
+  background-color: rgb(254, 254, 254);
 }
 
-#mB-mainV #mB-bottom {
-    width: 100%;
-    min-height: 46px;
-    background-color: rgb(254, 254, 254);
-    padding: 10px 10px 10px 24px;
-    box-sizing: border-box;
-    display: flex;
-    flex-wrap: wrap;
-    position: relative;
+#body-main-inv #body-bottom {
+  display: none;
 }
 
-#mB-mainInV #mB-bottom {
-    display: none;
+#body-main-v #body-bottom>div {
+  height: 26px;
+  line-height: 26px;
+  font-size: 14px;
+  color: rgb(119, 119, 119);
 }
 
-#mB-mainV #mB-bottom>div {
-    height: 26px;
-    line-height: 26px;
-    font-size: 14px;
-    color: rgb(119, 119, 119);
+#body-main-v #numbers {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  cursor: default;
 }
 
-#mB-mainV #numbers {
-    position: absolute;
-    left: 10px;
-    top: 10px;
-    cursor: default;
+#body-main-v #buttons {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  top: 10px;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
-#mB-mainV #buttons {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translate(-50%, 0);
-    display: flex;
-    flex-direction: row;
+#body-main-v #buttons div {
+  margin-right: 10px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  height: 24px;
+  line-height: 24px;
+  cursor: pointer;
+  border: 1px solid rgb(254, 254, 254);
 }
 
-#mB-mainV #buttons div {
-    margin-right: 10px;
-    padding: 0 10px;
-    height: 24px;
-    line-height: 24px;
-    cursor: pointer;
-    border: 1px solid rgb(254, 254, 254);
-    box-sizing: border-box;
+#body-main-v #buttons #b-choiced,
+#body-main-v #buttons div:hover {
+  border: 1px solid rgb(239, 213, 213);
+  border-radius: 4px;
 }
 
-#mB-mainV #buttons #b-Choiced {
-    border: 1px solid rgb(239, 213, 213);
-    border-radius: 4px;
+#body-main-v #clear-completed {
+  position: absolute;
+  top: 10px;
+  right: 24px;
 }
 
-#mB-mainV #buttons div:hover {
-    border: 1px solid rgb(239, 213, 213);
-    border-radius: 4px;
+#body-main-v #clear-completed:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
-#mB-mainV #clearCompleted {
-    position: absolute;
-    right: 24px;
-    top: 10px;
+#body-main-v #body-bottom-border01,
+#body-main-v #body-bottom-border02 {
+  position: absolute;
+  box-sizing: border-box;
+  height: 10px;
+  background-color: rgb(254, 254, 254);
 }
 
-#mB-mainV #clearCompleted:hover {
-    text-decoration: underline;
-    cursor: pointer;
+#body-main-v #body-bottom-border01 {
+  z-index: -10;
+  bottom: -8px;
+  left: 0.5%;
+  width: 99%;
+  box-shadow: 0px 0px 10px rgba(161, 154, 154, 0.6);
 }
 
-#mB-mainV #mB-bottom-border01 {
-    position: absolute;
-    width: 99%;
-    height: 10px;
-    background-color: rgb(254, 254, 254);
-    box-sizing: border-box;
-    box-shadow: 0px 0px 10px rgba(161, 154, 154, 0.6);
-    z-index: -10;
-    bottom: -8px;
-    left: 0.5%;
-}
-
-#mB-mainV #mB-bottom-border02 {
-    position: absolute;
-    width: 98%;
-    height: 10px;
-    background-color: rgb(254, 254, 254);
-    box-sizing: border-box;
-    box-shadow: 0px 2px 4px rgba(161, 154, 154, 0.6);
-    z-index: -20;
-    bottom: -16px;
-    left: 1%;
+#body-main-v #body-bottom-border02 {
+  z-index: -20;
+  bottom: -16px;
+  left: 1%;
+  width: 98%;
+  box-shadow: 0px 2px 4px rgba(161, 154, 154, 0.6);
 }
 
 #footer {
-    width: 100%;
-    height: 30px;
-    margin-top: 60px;
-    margin-bottom: 10px;
-    text-align: center;
-    line-height: 30px;
-    color: rgb(204, 191, 191);
-    font-size: 12px;
+  margin-top: 60px;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  color: rgb(204, 191, 191);
+  font-size: 12px;
 }
