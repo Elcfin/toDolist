@@ -1,32 +1,15 @@
-function deleteItem(todoItem) {
-  todoItem.parentNode.removeChild(todoItem);
-}
-
-function clearCompleted() {
-  const clearCompleted = document.querySelector("#clear-completed");
-  clearCompleted.addEventListener("click", function () {
-    const todoItem = document.querySelectorAll(".todoitem");
-    let flag = true;
-    for (let i = 0; i < todoItem.length; i++) {
-      let todoItemInput = todoItem[i].querySelector(".input-ch");
-      if (todoItemInput.checked) {
-        deleteItem(todoItem[i]);
-      } else {
-        flag = false;
-      }
-    }
-
-    if (flag) {
-      let mBmainV = document.querySelector("#body-main-v");
-      if (mBmainV) {
-        mBmainV.id = "body-main-inv";
-      }
-    }
-
-    clearCompleted.style.display = "none";
-  }, false);
-}
-
 window.addEventListener("load", function () {
-  clearCompleted();
+  const ul = document.querySelector("ul");
+  ul.addEventListener("click", function (event) {
+    if (event.target.className == "delete-icon") {
+      /* 单击delete-icon实现项目删除 */
+      deleteItem(event.target.parentNode.parentNode);
+      /* 删除时切换状态 */
+      statusChange();
+    }
+  }, false);
 }, false);
+
+function deleteItem(todoitem) {
+  todoitem.parentNode.removeChild(todoitem);
+}

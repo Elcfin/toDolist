@@ -48,11 +48,11 @@
   cursor: default;
 }
 
-#body-main-v #body-input #check-all {
+#body-main-v #body-input #uncheck-all {
   color: rgb(230, 230, 230);
 }
 
-#body-main-v #body-input #uncheck-all {
+#body-main-v #body-input #check-all {
   color: rgb(115, 115, 115);
 }
 
